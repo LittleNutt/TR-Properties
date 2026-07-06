@@ -106,3 +106,54 @@
   .brand-mark{width:52px;height:52px;flex-basis:52px}
   .brand-mark img{width:100%;height:100%}
 }
+
+/* Layout safety: let cards and text containers grow naturally without clipping. */
+.property-card,
+.portfolio-row,
+.project,
+.featured-project,
+.stage-card,
+.value-grid article,
+.contact-form,
+.renovation-copy,
+.project-copy,
+.footer-grid>div{
+  min-width:0;
+  height:auto;
+  max-height:none;
+  overflow-wrap:anywhere;
+}
+
+.value-grid{align-items:stretch}
+.value-grid article{
+  display:flex;
+  min-height:0;
+  padding-bottom:35px;
+  flex-direction:column;
+  overflow:visible;
+}
+.value-grid article p{margin-bottom:0}
+
+.progress-chapter{overflow:visible}
+.stage-card{
+  display:flex;
+  min-height:0;
+  flex-direction:column;
+  overflow:visible;
+}
+.stage-card figure{
+  flex:0 0 auto;
+  border-radius:var(--radius) var(--radius) 0 0;
+}
+.stage-card>div:not(.coming-mark){flex:1 1 auto}
+.coming-soon-card{min-height:0}
+.coming-mark{min-height:0}
+
+@media(max-width:980px){
+  .value-grid article,
+  .value-grid article+article{padding-bottom:35px}
+}
+@media(max-width:700px){
+  .value-grid article,
+  .value-grid article+article{padding-bottom:28px}
+}
